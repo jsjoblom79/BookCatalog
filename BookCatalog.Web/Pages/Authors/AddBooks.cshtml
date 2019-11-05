@@ -1,0 +1,40 @@
+﻿@page "{authorId:int}"
+@model BookCatalog.Web.Pages.Authors.AddBooksModel
+@{
+    ViewData["Title"] = "AddBooks";
+}
+
+<h2>@Model.Author.AuthorName</h2>
+
+<form method="post">
+    <div class="form-group">
+        <div class="input-group">
+            
+            <table class="table">
+                <tr>
+                    
+                    <th>Title</th>
+                    
+                    <td>
+                    <input asp-for="Book.Title" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <th>Copyright</th>
+                    <td><input asp-for="Book.Copyright" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <th>Publisher</th>
+                    <td><input asp-for="Book.Publisher" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td><input asp-for="Book.ImageUrl" class="form-control" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Add
+    </button>
+</form>
+
