@@ -1,0 +1,23 @@
+﻿@page "{authorId:int?}"
+@model BookCatalog.Web.Pages.Authors.EditAuthorModel
+@{
+    ViewData["Title"] = "EditAuthor";
+}
+
+<h2>@Model.Author.AuthorName</h2>
+
+<form method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Author.Id" />
+        <label asp-for="Author.AuthorName">Author Name</label>
+        <input asp-for="Author.AuthorName" class="form-control" />
+    </div>
+    <div class="form-group">
+      
+        <label asp-for="Author.PenName">Pen Name</label>
+        <input asp-for="Author.PenName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+</form>

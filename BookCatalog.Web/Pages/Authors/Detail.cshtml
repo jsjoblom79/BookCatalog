@@ -1,10 +1,10 @@
-﻿@page "{authorId:int}"
+﻿@page "{authorId:int?}"
 @model BookCatalog.Web.Pages.Authors.DetailModel
 @{
     ViewData["Title"] = "Detail";
 }
 
-<h2>@Model.Author.AuthorName</h2>
+<h2><a asp-page="./EditAuthor" asp-route-authorId="@Model.Author.Id">@Model.Author.AuthorName</a></h2>
 
 <div>
     <table class="table">
@@ -13,7 +13,9 @@
             </thead>
     @foreach (var book in Model.Books)
     {
-        <tr><td>@book.Title</td></tr>
+        <tr>
+            <td><a asp-page="./EditBook" asp-route-bookId="@book.Id">@book.Title</a></td>
+        </tr>
         <tr>
             <td></td>
             <td>@book.Copyright</td>

@@ -16,12 +16,19 @@ namespace BookCatalog.Web.Pages
         [BindProperty(SupportsGet = true)]
         public IEnumerable<Author> Authors { get; set; }
         public IEnumerable<Book> Books { get; set; }
+        public int BookCount { get; set; }
+        public int AuthorId { get; set; }
         public IndexModel(IBookCatalog catalog)
         {
             this.catalog = catalog;
         }
+        public int GetCountByAuthor(int id)
+        {
+            return catalog.BooksByAuthor(id);
+        }
         public void OnGet()
         {
+            BookCount = catalog.BooksByAuthor(AuthorId);
             Authors = catalog.GetAuthors();
             Books = catalog.GetBooks();
         }

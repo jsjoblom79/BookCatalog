@@ -21,6 +21,7 @@ namespace BookCatalog.Data
         Book EditBook(Book book);
         Book DeleteBook(int id);
         int Commit();
-
+        int BooksByAuthor(int authorId);
+        void UpdateBooks(Book book);
     }
 }

@@ -1,28 +1,35 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Book Catalog";
 }
 
 <div>
     <table class="table">
+        <thead>
+            <tr>
+                <th>Authors</th>
+            </tr>
+        </thead>
         @foreach (var author in Model.Authors)
         {
             <tr>
                 <td>
                     <a asp-page="/Authors/Detail" asp-route-authorId="@author.Id">@author.AuthorName</a>
-                    
+                    <a class="badge">@Model.GetCountByAuthor(author.Id)</a>
                 </td>
             </tr>
         }
 
     </table>
+    <a asp-page="/Authors/Add" asp-route-authorId="" class="btn btn-primary">Add</a>
 </div>
 <div>
-    <table class="table">
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th>Books</th>
+                <th></th>
             </tr>
         </thead>
         @foreach (var book in Model.Books)
